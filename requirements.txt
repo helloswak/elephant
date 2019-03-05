@@ -1,0 +1,10 @@
+Flask
+flask_cors
+gunicorn
+flask_jwt_extended
+Flask-SQLAlchemy
+passlib
+wtforms
+psycopg2-binary
+pymysql
+
