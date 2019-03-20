@@ -11,7 +11,7 @@ from datetime import datetime
 from passlib.hash import sha512_crypt
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')
 app.config['SECRET_KEY'] = 'I_LOVE_APPLE-STEVE_JOBS-1976_2011'
@@ -20,7 +20,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 jwt = JWTManager(app)
 
-STRIPE_API_KEY = "pk_live_e45sdh78jfhsd998"
 
 @app.before_first_request
 def create_tables():
@@ -51,7 +50,7 @@ class User(db.Model):
 
 @app.route('/')
 def hello():
-    return jsonify({'hello': 'wolrd'}), 200
+    return jsonify({'message': 'One more thing...'}), 201
 
 
 @app.route('/registration', methods=['POST'])
@@ -63,7 +62,7 @@ def registration():
             ret = {
                 'message': 'user found'
             }
-            return jsonify(ret), 200
+            return jsonify(ret), 201
 
         new_user = User()
         new_user.username = data['username']
