@@ -22,10 +22,10 @@ Method: POST
 2. login
 Method: POST
 
-3. /password/forget
+3. forget password
 Method: GET
 
-4. /token/refresh
+4. refresh token
 Method: POST
 
 5. feed

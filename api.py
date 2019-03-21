@@ -134,6 +134,3 @@ def protected():
     username = get_jwt_identity()
     return jsonify(logged_in_as=username), 200
 
-
-if __name__ == '__main__':
-    app.run()
